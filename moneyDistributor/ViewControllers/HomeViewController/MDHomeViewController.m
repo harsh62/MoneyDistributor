@@ -51,7 +51,7 @@
 }
 
 - (void)keyBoardWillShow:(NSNotification *)notification{
-    [self.personValueTable setFrame:CGRectMake(0,156,320,190)];
+    [self.personValueTable setFrame:CGRectMake(0,156,320,180)];
 }
 - (void)keyBoardWillHide:(NSNotification *)notification{
     [self.personValueTable setFrame:CGRectMake(0,156,320,374)];

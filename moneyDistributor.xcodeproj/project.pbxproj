@@ -31,6 +31,7 @@
 		16CCA254195D9BA400483935 /* icon80pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 16CCA252195D9BA400483935 /* icon80pt.png */; };
 		16CCA257195D9D9300483935 /* launchImage960.png in Resources */ = {isa = PBXBuildFile; fileRef = 16CCA255195D9D9300483935 /* launchImage960.png */; };
 		16CCA258195D9D9300483935 /* launchImage1136.png in Resources */ = {isa = PBXBuildFile; fileRef = 16CCA256195D9D9300483935 /* launchImage1136.png */; };
+		16CCA25B196144DD00483935 /* MDPayerPayee.m in Sources */ = {isa = PBXBuildFile; fileRef = 16CCA25A196144DD00483935 /* MDPayerPayee.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		16CCA252195D9BA400483935 /* icon80pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon80pt.png; sourceTree = "<group>"; };
 		16CCA255195D9D9300483935 /* launchImage960.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchImage960.png; sourceTree = "<group>"; };
 		16CCA256195D9D9300483935 /* launchImage1136.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = launchImage1136.png; sourceTree = "<group>"; };
+		16CCA259196144DD00483935 /* MDPayerPayee.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDPayerPayee.h; sourceTree = "<group>"; };
+		16CCA25A196144DD00483935 /* MDPayerPayee.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDPayerPayee.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +222,8 @@
 			children = (
 				16CCA23A195D47A600483935 /* MDPersonValue.h */,
 				16CCA23B195D47A600483935 /* MDPersonValue.m */,
+				16CCA259196144DD00483935 /* MDPayerPayee.h */,
+				16CCA25A196144DD00483935 /* MDPayerPayee.m */,
 			);
 			path = DataModelClass;
 			sourceTree = "<group>";
@@ -365,6 +370,7 @@
 				16CCA236195D447D00483935 /* MDPersonsCustomTableViewCell.m in Sources */,
 				16CCA247195D698300483935 /* MDDuesViewController.m in Sources */,
 				16CCA243195D60FE00483935 /* MDCalculateMoneyDue.m in Sources */,
+				16CCA25B196144DD00483935 /* MDPayerPayee.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +499,7 @@
 				GCC_PREFIX_HEADER = "moneyDistributor/moneyDistributor-Prefix.pch";
 				INFOPLIST_FILE = "moneyDistributor/moneyDistributor-Info.plist";
 				PRODUCT_NAME = Money;
+				PROVISIONING_PROFILE = "B28DC7EB-5189-4ACD-96D0-6919ECE6FF47";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -506,6 +513,7 @@
 				GCC_PREFIX_HEADER = "moneyDistributor/moneyDistributor-Prefix.pch";
 				INFOPLIST_FILE = "moneyDistributor/moneyDistributor-Info.plist";
 				PRODUCT_NAME = Money;
+				PROVISIONING_PROFILE = "B28DC7EB-5189-4ACD-96D0-6919ECE6FF47";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -569,6 +577,7 @@
 				16CCA224195D416500483935 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		16CCA225195D416500483935 /* Build configuration list for PBXNativeTarget "moneyDistributorTests" */ = {
 			isa = XCConfigurationList;
@@ -577,6 +586,7 @@
 				16CCA227195D416500483935 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

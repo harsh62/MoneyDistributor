@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MDPayerPayee.h"
 
 @interface MDCalculateMoneyDue : NSObject
 +(MDCalculateMoneyDue*) sharedInstance;
@@ -17,5 +18,6 @@
 
 
 @property (nonatomic, retain) NSNumber *moneyTotalSpent;
+@property (nonatomic, retain) NSNumber *individualValue;
 - (void)calculateMoneyDues;
 @end

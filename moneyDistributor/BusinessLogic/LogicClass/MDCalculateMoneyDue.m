@@ -27,14 +27,14 @@ static MDCalculateMoneyDue *_sharedInstance = nil;
 //    self.moneyTotalSpent;
 //    self.personValueArray;
     
-    NSNumber *individualValue = [NSNumber numberWithFloat:[self.moneyTotalSpent floatValue] / [self.personValueArray count]];
+    self.individualValue = [NSNumber numberWithFloat:[self.moneyTotalSpent floatValue] / [self.personValueArray count]];
     NSMutableArray *netDueArray = [[NSMutableArray alloc] init];
     
     self.personDebtArray = [[NSMutableArray alloc] init];
     
     for(int i =0; i< [self.personValueArray count]; i++){
         MDPersonValue *obj = (MDPersonValue *)[self.personValueArray objectAtIndex:i];
-        obj.moneyDue =  [NSNumber numberWithFloat:obj.personValueSpent.intValue - [individualValue floatValue]];
+        obj.moneyDue =  [NSNumber numberWithFloat:obj.personValueSpent.intValue - [self.individualValue floatValue]];
         [netDueArray addObject:obj.moneyDue];
     }
     
@@ -48,10 +48,15 @@ static MDCalculateMoneyDue *_sharedInstance = nil;
                     if([valueToBePaid floatValue] < 0){
                         if(fabsf([valueToBePaid floatValue]) < [valueToBeReceived floatValue]){
                             
+                            MDPayerPayee *objPayerPayee = [[MDPayerPayee alloc] init];
+                            
                             MDPersonValue *objPayee = (MDPersonValue *)[self.personValueArray objectAtIndex:i];
                             MDPersonValue *objPayer = (MDPersonValue *)[self.personValueArray objectAtIndex:j];
+                            objPayerPayee.payeeName = objPayee.personName;
+                            objPayerPayee.payerName = objPayer.personName;
+                            objPayerPayee.amount = [NSNumber numberWithFloat:[[NSString stringWithFormat:@"%0.2f",fabsf([valueToBePaid floatValue])] floatValue]] ;
+                            [self.personDebtArray addObject:objPayerPayee];
                             
-                            [self.personDebtArray addObject:[NSString stringWithFormat:@"%@ -->> %@ : %.02f",objPayer.personName,objPayee.personName,fabsf([valueToBePaid floatValue])]];
                             NSLog(@"%@ pays %@",objPayer.personName,objPayee.personName);
                             
                             valueToBeReceived = [NSNumber numberWithFloat:[valueToBePaid floatValue] + [valueToBeReceived floatValue]];
@@ -63,10 +68,16 @@ static MDCalculateMoneyDue *_sharedInstance = nil;
                         }
                         else if (fabsf([valueToBePaid floatValue]) == [valueToBeReceived floatValue]){
                             
+                            MDPayerPayee *objPayerPayee = [[MDPayerPayee alloc] init];
+                            
                             MDPersonValue *objPayee = (MDPersonValue *)[self.personValueArray objectAtIndex:i];
                             MDPersonValue *objPayer = (MDPersonValue *)[self.personValueArray objectAtIndex:j];
+                            objPayerPayee.payeeName = objPayee.personName;
+                            objPayerPayee.payerName = objPayer.personName;
+                            objPayerPayee.amount = [NSNumber numberWithFloat:[[NSString stringWithFormat:@"%0.2f",fabsf([valueToBePaid floatValue])] floatValue]] ;
+                            [self.personDebtArray addObject:objPayerPayee];
                             
-                            [self.personDebtArray addObject:[NSString stringWithFormat:@"%@ -->> %@ : %.02f",objPayer.personName,objPayee.personName,fabsf([valueToBePaid floatValue])]];
+                            
                             NSLog(@"%@ pays %@",objPayer.personName,objPayee.personName);
                             
                             valueToBeReceived = [NSNumber numberWithFloat:0.0];
@@ -79,10 +90,15 @@ static MDCalculateMoneyDue *_sharedInstance = nil;
                             break;
                         }
                         else{
+                            MDPayerPayee *objPayerPayee = [[MDPayerPayee alloc] init];
+                            
                             MDPersonValue *objPayee = (MDPersonValue *)[self.personValueArray objectAtIndex:i];
                             MDPersonValue *objPayer = (MDPersonValue *)[self.personValueArray objectAtIndex:j];
+                            objPayerPayee.payeeName = objPayee.personName;
+                            objPayerPayee.payerName = objPayer.personName;
+                            objPayerPayee.amount = [NSNumber numberWithFloat:[[NSString stringWithFormat:@"%0.2f",fabsf([valueToBeReceived floatValue])] floatValue]] ;
+                            [self.personDebtArray addObject:objPayerPayee];
                             
-                            [self.personDebtArray addObject:[NSString stringWithFormat:@"%@ -->> %@ : %.02f",objPayer.personName,objPayee.personName,fabsf([valueToBeReceived floatValue])]];
                             NSLog(@"%@ pays %@",objPayer.personName,objPayee.personName);
                             
                             valueToBePaid = [NSNumber numberWithFloat:[valueToBePaid floatValue] + [valueToBeReceived floatValue]];
